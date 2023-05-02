@@ -1,0 +1,203 @@
+/*
+  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
+  works for both.
+*/
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+:root{
+  --col-01:#171219;
+  --col-02:#f2fbeb;
+  --col-03:#7c7c7c;
+  --col-04:#b6e878;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+nav ol li a{
+  cursor: pointer;
+  color: var(--col-03);
+  transition: 0.5s;
+/* the green nicely contrasts the pages cold pallette, which I associate with user interactivity bringing a 'life' to the page.
+The fading and slow/smooth glide over the hover function aids this as something that feels natural rather than clunky */ 
+  
+}
+
+nav ol li a:hover{
+  color: var(--col-04);
+
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+  transition: 1s;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav li{
+  font-size: 1rem;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+h1{
+  font-size: 3rem;
+  color: #7c7c7c;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+/* I am trying to make everything as smooth as possible with these transitions, as I want to keep the aesthetic very minimal and visually calming. */
+#mode-button{
+  float: right;
+  /* I changed the position of the button so as to stop it from interrupting the reading experience as the user scrolls, so I decided to keep it firmly placed at the top. */
+  position:relative;
+  top: 1rem;
+  background-color: var(--col-03);
+  opacity: 50%;
+  transition: 1s;
+  cursor:pointer;
+/* I tried to apply some more detailed animations but struggled to get something beyond this that would carry meaning to a user. I think that in keeping it smooth and paced that
+it inspires a lot more of a personalised experience. */
+}
+
+/* I wanted to include a hover feature over the the mode switch button to give it a smooth feeling of interactivity, and visually associate the feeling of 'brightening' and 'darkening' as the function of the button */ 
+#mode-button:hover{
+  background-color: var(--col-04);
+  transition: 1s;
+  opacity: 100%;
+}
+
+/* code for loading page */
+
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* changing button to look like a link */
+#load-link{
+  line-height: 1rem;
+  background-color: var(--col-04);
+  border: 0;
+  cursor: pointer;
+  transition: 1s;
+
+
+
+}
+#load-link:hover {
+  color: var(--col-04);
+  background-color: var(--col-01);
+  transition: 2s;
+}
+
+
+/* the minimalist aesthetic was used to fit the feature page, with a slow fade of the load button leading into the dark mode of the page.  */
+#load-throbber{
+  width: 100%;
+  height: 0.2rem;
+  background-color: black ;
+  display: none;
+  animation: fadeIn 10s;
+}
+/* in my opinion this animation was the best suited for the long loading screen, It gives the aura of anticipation without the user being worried that the page isn't loading - a sense of progress */
+@keyframes fadeIn {
+  0% {background-color: var(--col-02);}
+  100% {background-color: var(--col-01)}
+}
+
+
+/* Media Queries */
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
+
